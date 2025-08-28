@@ -1,4 +1,4 @@
-import { Bus, Users, Clock, DollarSign, TrendingUp, TrendingDown, UserPlus, AlertTriangle } from "lucide-react";
+import { Bus, Users, Clock, DollarSign, TrendingUp, TrendingDown, UserPlus, AlertTriangle, BarChart3 } from "lucide-react";
 
 export default function Dashboard() {
   const metrics = [
