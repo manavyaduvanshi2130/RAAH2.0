@@ -26,14 +26,14 @@ export default function About() {
 
   const team = [
     {
-      name: "Development Team",
-      role: "SIH 2025 Participants",
-      description: "A passionate team working on smart transportation solutions for India"
+      name: "Team Pegasus",
+      role: "SIH 2025 Development Team",
+      description: "A passionate team of innovators working on smart transportation solutions for Udaipur and India"
     },
     {
       name: "Udaipur Municipal Corporation",
       role: "Project Partner",
-      description: "Supporting the digital transformation of public transportation"
+      description: "Supporting the digital transformation of public transportation in the Lake City"
     }
   ];
 
@@ -112,7 +112,7 @@ export default function About() {
             </div>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            Raah is developed as part of Smart India Hackathon 2025, India's largest digital innovation 
+            Raah is developed by Team Pegasus as part of Smart India Hackathon 2025, India's largest digital innovation 
             initiative. Our project addresses the critical need for smart transportation solutions in 
             heritage cities like Udaipur, where modern efficiency must coexist with cultural preservation.
           </p>
@@ -156,9 +156,9 @@ export default function About() {
       {/* Team Section */}
       <section>
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Our Team</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4">Team Pegasus</h2>
           <p className="text-lg text-muted-foreground">
-            Passionate individuals working to revolutionize urban transportation
+            Passionate innovators working to revolutionize urban transportation in Udaipur
           </p>
         </div>
         

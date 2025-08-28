@@ -6,7 +6,9 @@ export default function Footer() {
     { name: "Home", href: "/" },
     { name: "Dashboard", href: "/dashboard" },
     { name: "Routes", href: "/routes" },
-    { name: "Documentation", href: "#" },
+    { name: "Taxi Routes", href: "/taxi-routes" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -101,7 +103,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © 2025 Raah. All rights reserved. Built for SIH 2025 - Udaipur Smart City.
+            © 2025 Raah by Team Pegasus. All rights reserved. Built for SIH 2025 - Udaipur Smart City.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a

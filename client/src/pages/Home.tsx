@@ -22,8 +22,8 @@ export default function Home() {
 
   const stats = [
     { value: "150+", label: "Active Buses" },
-    { value: "45+", label: "Routes in Udaipur" },
-    { value: "25%", label: "Travel Time Reduced" },
+    { value: "90+", label: "Active Taxis" },
+    { value: "45+", label: "Bus Routes" },
     { value: "50K+", label: "Daily Passengers" },
   ];
 

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { Bus, Users, Clock, DollarSign, TrendingUp, TrendingDown, UserPlus, AlertTriangle, BarChart3, MapPin } from "lucide-react";
+import { Bus, Car, Users, Clock, DollarSign, TrendingUp, TrendingDown, UserPlus, AlertTriangle, BarChart3, MapPin } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from "recharts";
 
 export default function Dashboard() {
   const [liveData, setLiveData] = useState({
     activeBuses: 142,
+    activeTaxis: 89,
     totalPassengers: 8250,
     avgDelay: 2.8,
     revenue: 45600
@@ -15,6 +16,7 @@ export default function Dashboard() {
     const interval = setInterval(() => {
       setLiveData(prev => ({
         activeBuses: prev.activeBuses + Math.floor(Math.random() * 6) - 3,
+        activeTaxis: prev.activeTaxis + Math.floor(Math.random() * 4) - 2,
         totalPassengers: prev.totalPassengers + Math.floor(Math.random() * 100) - 50,
         avgDelay: Math.max(0, prev.avgDelay + (Math.random() * 0.4) - 0.2),
         revenue: prev.revenue + Math.floor(Math.random() * 1000) - 500
@@ -25,14 +27,14 @@ export default function Dashboard() {
 
   // Sample data for charts
   const hourlyData = [
-    { hour: '6 AM', passengers: 1200, buses: 45 },
-    { hour: '8 AM', passengers: 3200, buses: 85 },
-    { hour: '10 AM', passengers: 2800, buses: 75 },
-    { hour: '12 PM', passengers: 3500, buses: 95 },
-    { hour: '2 PM', passengers: 2400, buses: 65 },
-    { hour: '4 PM', passengers: 4200, buses: 110 },
-    { hour: '6 PM', passengers: 5800, buses: 142 },
-    { hour: '8 PM', passengers: 3800, buses: 88 },
+    { hour: '6 AM', passengers: 1200, buses: 45, taxis: 28 },
+    { hour: '8 AM', passengers: 3200, buses: 85, taxis: 52 },
+    { hour: '10 AM', passengers: 2800, buses: 75, taxis: 48 },
+    { hour: '12 PM', passengers: 3500, buses: 95, taxis: 68 },
+    { hour: '2 PM', passengers: 2400, buses: 65, taxis: 45 },
+    { hour: '4 PM', passengers: 4200, buses: 110, taxis: 78 },
+    { hour: '6 PM', passengers: 5800, buses: 142, taxis: 89 },
+    { hour: '8 PM', passengers: 3800, buses: 88, taxis: 62 },
   ];
 
   const routeData = [
@@ -49,6 +51,13 @@ export default function Dashboard() {
       value: liveData.activeBuses.toString(),
       icon: Bus,
       trend: "+8% from yesterday",
+      trendUp: true,
+    },
+    {
+      title: "Active Taxis",
+      value: liveData.activeTaxis.toString(),
+      icon: Car,
+      trend: "+12% from yesterday",
       trendUp: true,
     },
     {
@@ -170,6 +179,13 @@ export default function Dashboard() {
                   stroke="hsl(45, 100%, 50%)" 
                   strokeWidth={3}
                   name="Active Buses"
+                />
+                <Line 
+                  type="monotone" 
+                  dataKey="taxis" 
+                  stroke="hsl(142, 76%, 36%)" 
+                  strokeWidth={3}
+                  name="Active Taxis"
                 />
               </LineChart>
             </ResponsiveContainer>

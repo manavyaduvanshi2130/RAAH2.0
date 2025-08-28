@@ -1,0 +1,76 @@
+I am building a smart transport web application named Raah for Udaipur city on Replit.
+My team name is Pegasus (please show it in the footer and About page).
+
+So far, I have set up a React + TailwindCSS project with a homepage that has:
+
+Navbar with links (Home, Dashboard, Routes, Taxi Routes, About, Contact)
+
+Hero section with city transport tagline and call-to-action button
+
+Stats section showing buses, routes, delays, and passengers
+
+Footer with team name Pegasus
+
+Now, I want to integrate functional pages and features into my project:
+
+Dashboard Page
+
+Live charts for buses, taxi routes, passengers (use Recharts or Chart.js)
+
+Map view of buses and taxi routes (use Leaflet or Google Maps API)
+
+Real-time update simulation (mock API or JSON data for now)
+
+Routes Page (Bus Routes)
+
+Show all Udaipur bus routes in a table/grid
+
+Search and filter routes by area/number
+
+Option to click and view route details
+
+Taxi Routes Page
+
+Show all available taxi pickup/drop routes in Udaipur
+
+Filter by area (e.g., Fatehsagar, Hiran Magri, Bapu Bazar)
+
+Show estimated fare & travel time for each route
+
+Option to simulate booking (button with no backend, just console log)
+
+About Page
+
+Info about Raah project, Udaipur smart city transport, and our Team Pegasus
+
+Contact Page
+
+Simple form (Name, Email, Message)
+
+Submit button (store in mock JSON or console log for now)
+
+Integration
+
+Use React Router for page navigation
+
+Keep design modern, responsive, with Tailwind
+
+Maintain Udaipur theme colors (Royal Blue, Yellow, White)
+
+Code must run directly in Replit without extra fixes
+
+Please generate a complete React + Tailwind codebase with:
+
+App.js and pages/ folder (Dashboard, Routes, TaxiRoutes, About, Contact)
+
+components/ folder for Navbar, Footer, Cards, Forms
+
+Routing already configured with react-router-dom
+
+Placeholder data for buses & taxi routes
+
+Responsive design for mobile & desktop
+
+⚡ With this, Gemini/Perplexity/Replit AI will give you a ready-to-run Raah project 🚍🚖.
+
+👉 Do you want me to also draft the taxi routes dataset (JSON with pickup, drop, fare, ETA) for Udaipur so you can plug it directly in the TaxiRoutes page?

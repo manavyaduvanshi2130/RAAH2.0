@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, X, Route, Home, BarChart3, MapPin, Info, Mail } from "lucide-react";
+import { Menu, X, Route, Home, BarChart3, MapPin, Info, Mail, Car } from "lucide-react";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -11,6 +11,7 @@ export default function Navbar() {
     { name: "Home", href: "/", icon: Home },
     { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
     { name: "Routes", href: "/routes", icon: MapPin },
+    { name: "Taxi Routes", href: "/taxi-routes", icon: Car },
     { name: "About", href: "/about", icon: Info },
     { name: "Contact", href: "/contact", icon: Mail },
   ];
