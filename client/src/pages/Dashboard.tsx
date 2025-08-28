@@ -1,33 +1,75 @@
-import { Bus, Users, Clock, DollarSign, TrendingUp, TrendingDown, UserPlus, AlertTriangle, BarChart3 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Bus, Users, Clock, DollarSign, TrendingUp, TrendingDown, UserPlus, AlertTriangle, BarChart3, MapPin } from "lucide-react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from "recharts";
 
 export default function Dashboard() {
+  const [liveData, setLiveData] = useState({
+    activeBuses: 142,
+    totalPassengers: 8250,
+    avgDelay: 2.8,
+    revenue: 45600
+  });
+
+  // Simulate real-time data updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLiveData(prev => ({
+        activeBuses: prev.activeBuses + Math.floor(Math.random() * 6) - 3,
+        totalPassengers: prev.totalPassengers + Math.floor(Math.random() * 100) - 50,
+        avgDelay: Math.max(0, prev.avgDelay + (Math.random() * 0.4) - 0.2),
+        revenue: prev.revenue + Math.floor(Math.random() * 1000) - 500
+      }));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Sample data for charts
+  const hourlyData = [
+    { hour: '6 AM', passengers: 1200, buses: 45 },
+    { hour: '8 AM', passengers: 3200, buses: 85 },
+    { hour: '10 AM', passengers: 2800, buses: 75 },
+    { hour: '12 PM', passengers: 3500, buses: 95 },
+    { hour: '2 PM', passengers: 2400, buses: 65 },
+    { hour: '4 PM', passengers: 4200, buses: 110 },
+    { hour: '6 PM', passengers: 5800, buses: 142 },
+    { hour: '8 PM', passengers: 3800, buses: 88 },
+  ];
+
+  const routeData = [
+    { route: 'City Palace - Airport', passengers: 1250, efficiency: 92 },
+    { route: 'Railway Station - Mall', passengers: 980, efficiency: 87 },
+    { route: 'University - Lake Pichola', passengers: 750, efficiency: 89 },
+    { route: 'Bus Stand - Haldighati', passengers: 650, efficiency: 85 },
+  ];
+
+  const COLORS = ['hsl(220, 100%, 50%)', 'hsl(45, 100%, 50%)', 'hsl(142, 76%, 36%)', 'hsl(0, 84%, 60%)'];
   const metrics = [
     {
-      title: "Active Vehicles",
-      value: "2,847",
+      title: "Active Buses",
+      value: liveData.activeBuses.toString(),
       icon: Bus,
-      trend: "+12% from yesterday",
-      trendUp: true,
-    },
-    {
-      title: "Total Passengers",
-      value: "45,291",
-      icon: Users,
       trend: "+8% from yesterday",
       trendUp: true,
     },
     {
+      title: "Total Passengers",
+      value: liveData.totalPassengers.toLocaleString(),
+      icon: Users,
+      trend: "+12% from yesterday",
+      trendUp: true,
+    },
+    {
       title: "Average Delay",
-      value: "3.2 min",
+      value: `${liveData.avgDelay.toFixed(1)} min`,
       icon: Clock,
-      trend: "-15% from yesterday",
+      trend: "-18% from yesterday",
       trendUp: false,
     },
     {
       title: "Revenue Today",
-      value: "₹1,23,450",
+      value: `₹${liveData.revenue.toLocaleString()}`,
       icon: DollarSign,
-      trend: "+22% from yesterday",
+      trend: "+15% from yesterday",
       trendUp: true,
     },
   ];
@@ -35,21 +77,27 @@ export default function Dashboard() {
   const activities = [
     {
       icon: Bus,
-      title: "Route B47 completed journey",
+      title: "Route UP-14 (City Palace - Airport) completed journey",
       time: "2 minutes ago",
       color: "primary",
     },
     {
       icon: AlertTriangle,
-      title: "Traffic congestion detected on MG Road",
+      title: "Traffic congestion detected on Chetak Circle",
       time: "5 minutes ago",
       color: "accent",
     },
     {
       icon: UserPlus,
-      title: "New driver registered: Amit Kumar",
+      title: "New driver registered: Raj Singh",
       time: "12 minutes ago",
       color: "secondary",
+    },
+    {
+      icon: MapPin,
+      title: "New bus stop added near Lake Pichola",
+      time: "1 hour ago",
+      color: "primary",
     },
   ];
 
@@ -57,8 +105,8 @@ export default function Dashboard() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Dashboard Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground mb-2">Transport Dashboard</h1>
-        <p className="text-muted-foreground">Real-time monitoring and analytics for transportation networks</p>
+        <h1 className="text-3xl font-bold text-foreground mb-2">Raah Dashboard</h1>
+        <p className="text-muted-foreground">Real-time monitoring and analytics for Udaipur's transportation network</p>
       </div>
 
       {/* Key Metrics */}
@@ -93,33 +141,66 @@ export default function Dashboard() {
 
       {/* Charts Section */}
       <div className="grid lg:grid-cols-2 gap-8 mb-8">
-        {/* Traffic Flow Chart */}
+        {/* Hourly Passenger Flow */}
         <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
-          <h3 className="text-lg font-semibold text-card-foreground mb-4">Traffic Flow Trends</h3>
-          <div
-            data-testid="chart-traffic-flow"
-            className="h-64 bg-muted rounded-lg flex items-center justify-center"
-          >
-            <div className="text-center text-muted-foreground">
-              <BarChart3 className="h-16 w-16 mx-auto mb-2" />
-              <p className="text-sm">Traffic Flow Chart Placeholder</p>
-              <p className="text-xs mt-1">Chart implementation pending</p>
-            </div>
+          <h3 className="text-lg font-semibold text-card-foreground mb-4">Hourly Passenger & Bus Flow</h3>
+          <div data-testid="chart-traffic-flow" className="h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={hourlyData}>
+                <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                <XAxis dataKey="hour" className="text-xs" />
+                <YAxis className="text-xs" />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'hsl(var(--card))',
+                    border: '1px solid hsl(var(--border))',
+                    borderRadius: '8px'
+                  }}
+                />
+                <Line 
+                  type="monotone" 
+                  dataKey="passengers" 
+                  stroke="hsl(220, 100%, 50%)" 
+                  strokeWidth={3}
+                  name="Passengers"
+                />
+                <Line 
+                  type="monotone" 
+                  dataKey="buses" 
+                  stroke="hsl(45, 100%, 50%)" 
+                  strokeWidth={3}
+                  name="Active Buses"
+                />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
 
         {/* Route Performance */}
         <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
-          <h3 className="text-lg font-semibold text-card-foreground mb-4">Route Performance</h3>
-          <div
-            data-testid="chart-route-performance"
-            className="h-64 bg-muted rounded-lg flex items-center justify-center"
-          >
-            <div className="text-center text-muted-foreground">
-              <BarChart3 className="h-16 w-16 mx-auto mb-2" />
-              <p className="text-sm">Route Performance Chart Placeholder</p>
-              <p className="text-xs mt-1">Chart implementation pending</p>
-            </div>
+          <h3 className="text-lg font-semibold text-card-foreground mb-4">Top Routes Performance</h3>
+          <div data-testid="chart-route-performance" className="h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={routeData}>
+                <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
+                <XAxis 
+                  dataKey="route" 
+                  className="text-xs" 
+                  angle={-45}
+                  textAnchor="end"
+                  height={80}
+                />
+                <YAxis className="text-xs" />
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: 'hsl(var(--card))',
+                    border: '1px solid hsl(var(--border))',
+                    borderRadius: '8px'
+                  }}
+                />
+                <Bar dataKey="passengers" fill="hsl(220, 100%, 50%)" name="Daily Passengers" />
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
       </div>

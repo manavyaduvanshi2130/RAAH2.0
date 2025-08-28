@@ -20,12 +20,12 @@ export default function Footer() {
                 <Route className="text-primary-foreground text-lg" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-card-foreground">TransportHub</h2>
-                <p className="text-sm text-muted-foreground">SIH 2025 Project</p>
+                <h2 className="text-xl font-bold text-card-foreground">Raah</h2>
+                <p className="text-sm text-muted-foreground">Udaipur Smart Transport</p>
               </div>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
-              Revolutionizing urban transportation through intelligent routing, real-time analytics, and seamless integration.
+              Revolutionizing Udaipur's transportation through intelligent routing, real-time analytics, and seamless integration for the Lake City.
             </p>
             <div className="flex space-x-4">
               <a
@@ -84,7 +84,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="text-muted-foreground flex items-center">
                 <Mail className="mr-2 h-4 w-4" />
-                support@transporthub.com
+                support@raah-udaipur.com
               </li>
               <li className="text-muted-foreground flex items-center">
                 <Phone className="mr-2 h-4 w-4" />
@@ -92,7 +92,7 @@ export default function Footer() {
               </li>
               <li className="text-muted-foreground flex items-center">
                 <MapPin className="mr-2 h-4 w-4" />
-                Bangalore, India
+                Udaipur, Rajasthan
               </li>
             </ul>
           </div>
@@ -101,7 +101,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © 2025 TransportHub. All rights reserved. Built for SIH 2025.
+            © 2025 Raah. All rights reserved. Built for SIH 2025 - Udaipur Smart City.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a

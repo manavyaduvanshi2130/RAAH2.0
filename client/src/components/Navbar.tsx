@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, X, Route, Home, BarChart3, MapPin } from "lucide-react";
+import { Menu, X, Route, Home, BarChart3, MapPin, Info, Mail } from "lucide-react";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -11,6 +11,8 @@ export default function Navbar() {
     { name: "Home", href: "/", icon: Home },
     { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
     { name: "Routes", href: "/routes", icon: MapPin },
+    { name: "About", href: "/about", icon: Info },
+    { name: "Contact", href: "/contact", icon: Mail },
   ];
 
   const isActive = (href: string) => {
@@ -29,8 +31,8 @@ export default function Navbar() {
                 <Route className="text-primary-foreground text-lg" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">TransportHub</h1>
-                <p className="text-xs text-muted-foreground">SIH 2025 Project</p>
+                <h1 className="text-xl font-bold text-foreground">Raah</h1>
+                <p className="text-xs text-muted-foreground">Udaipur Smart Transport</p>
               </div>
             </div>
           </Link>

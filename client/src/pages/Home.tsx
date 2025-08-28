@@ -21,10 +21,10 @@ export default function Home() {
   ];
 
   const stats = [
-    { value: "50+", label: "Cities Covered" },
-    { value: "1M+", label: "Daily Routes" },
-    { value: "30%", label: "Time Saved" },
-    { value: "24/7", label: "Monitoring" },
+    { value: "150+", label: "Active Buses" },
+    { value: "45+", label: "Routes in Udaipur" },
+    { value: "25%", label: "Travel Time Reduced" },
+    { value: "50K+", label: "Daily Passengers" },
   ];
 
   return (
@@ -34,10 +34,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Smart Transport Management
+              Raah - Smart Udaipur Transport
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-3xl mx-auto">
-              Revolutionary solution for SIH 2025 - Optimizing urban transportation with intelligent routing and real-time analytics
+              Revolutionary solution for SIH 2025 - Connecting the Lake City with intelligent routing, real-time bus tracking, and seamless transportation for Udaipur
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/dashboard" data-testid="button-dashboard">

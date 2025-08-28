@@ -17,37 +17,70 @@ export default function Routes() {
 
   const routes = [
     {
-      id: "A42",
-      name: "Route A42",
-      path: "Central Station → Airport",
+      id: "UP-14",
+      name: "Route UP-14",
+      path: "City Palace → Maharana Pratap Airport",
       status: "active",
-      distance: "24.5 km",
-      duration: "45 min",
-      vehicles: "12 buses",
-      frequency: "Every 15 min",
-      passengers: "1,234 passengers today",
-    },
-    {
-      id: "B15",
-      name: "Route B15",
-      path: "Tech Park → City Center",
-      status: "maintenance",
-      distance: "18.2 km",
-      duration: "32 min",
-      vehicles: "8 buses",
+      distance: "28.5 km",
+      duration: "55 min",
+      vehicles: "15 buses",
       frequency: "Every 20 min",
-      passengers: "892 passengers today",
+      passengers: "1,450 passengers today",
     },
     {
-      id: "C23",
-      name: "Route C23",
-      path: "University → Mall",
+      id: "UP-07",
+      name: "Route UP-07",
+      path: "Railway Station → Lake Pichola",
       status: "active",
-      distance: "12.8 km",
-      duration: "25 min",
-      vehicles: "6 buses",
+      distance: "8.2 km",
+      duration: "22 min",
+      vehicles: "10 buses",
       frequency: "Every 12 min",
-      passengers: "567 passengers today",
+      passengers: "980 passengers today",
+    },
+    {
+      id: "UP-23",
+      name: "Route UP-23",
+      path: "Chetak Circle → Celebration Mall",
+      status: "maintenance",
+      distance: "12.8 km",
+      duration: "28 min",
+      vehicles: "8 buses",
+      frequency: "Every 15 min",
+      passengers: "670 passengers today",
+    },
+    {
+      id: "UP-35",
+      name: "Route UP-35",
+      path: "University → Fateh Sagar Lake",
+      status: "active",
+      distance: "15.3 km",
+      duration: "35 min",
+      vehicles: "12 buses",
+      frequency: "Every 18 min",
+      passengers: "820 passengers today",
+    },
+    {
+      id: "UP-09",
+      name: "Route UP-09",
+      path: "Bus Stand → Saheliyon Ki Bari",
+      status: "active",
+      distance: "9.7 km",
+      duration: "25 min",
+      vehicles: "8 buses",
+      frequency: "Every 25 min",
+      passengers: "450 passengers today",
+    },
+    {
+      id: "UP-18",
+      name: "Route UP-18",
+      path: "Haldighati → Shilpgram",
+      status: "active",
+      distance: "45.2 km",
+      duration: "75 min",
+      vehicles: "6 buses",
+      frequency: "Every 45 min",
+      passengers: "320 passengers today",
     },
   ];
 
@@ -78,8 +111,8 @@ export default function Routes() {
       {/* Routes Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">Route Management</h1>
-          <p className="text-muted-foreground">Manage and optimize transportation routes</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Udaipur Bus Routes</h1>
+          <p className="text-muted-foreground">Explore and track all bus routes across the Lake City</p>
         </div>
         <Button data-testid="button-add-route" className="mt-4 md:mt-0">
           <Plus className="mr-2 h-4 w-4" />
