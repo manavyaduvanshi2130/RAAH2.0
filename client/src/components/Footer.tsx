@@ -7,6 +7,7 @@ export default function Footer() {
     { name: "Dashboard", href: "/dashboard" },
     { name: "Routes", href: "/routes" },
     { name: "Taxi Routes", href: "/taxi-routes" },
+    { name: "Feedback", href: "/feedback" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
